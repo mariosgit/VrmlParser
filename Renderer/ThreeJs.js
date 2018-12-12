@@ -722,7 +722,11 @@ VrmlParser.Renderer.ThreeJs.prototype = {
 						object.material       = new THREE.MeshNormalMaterial();
 						object.material.color = new THREE.Color(0.5, 0.5, 0.5);
 					}
-					break;
+                    break;
+                case 'Inline':
+                    object = new THREE.Group;
+                    object.userData = node.url;
+                    break;
 				default:
 					// unsupported nodes will not be added to the scene as an object
 					object = false;
